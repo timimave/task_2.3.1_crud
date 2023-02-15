@@ -29,6 +29,8 @@ public class WebConfig implements WebMvcConfigurer {
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("/WEB-INF/pages/");
         templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML5"); //
+        templateResolver.setCacheable(false); //
         return templateResolver;
     }
 
@@ -48,3 +50,4 @@ public class WebConfig implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 }
+

@@ -13,23 +13,23 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     @Column(name = "name")
-    private String firstName;
-
+    private String name;
     @Column(name = "last_name")
     private String lastName;
+    @Column(name = "Is_a")
+    private boolean APersonWhoStudiesJava;
 
-    private String email;
 
 
     public User() {
     }
 
     public User(String firstName, String lastName, String email) {
-        this.firstName = firstName;
+        this.name = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.APersonWhoStudiesJava = APersonWhoStudiesJava;
+
 
     }
 
@@ -41,12 +41,12 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLastName() {
@@ -57,20 +57,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public boolean getIsAPersonWhoStudiesJava() {
+        return APersonWhoStudiesJava;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAPersonWhoStudiesJava(boolean APersonWhoStudiesJava) {
+        this.APersonWhoStudiesJava = APersonWhoStudiesJava;
     }
-
 
     @Override
     public String toString() {
         return String.format(
-            "User id = %d, firstName = '%s', lastName = '%s', email = '%s' ",
-            id, firstName, lastName, email);
+            "User id = %d, firstName = '%s', lastName = '%s'",
+            id, name, lastName);
 
     }
 

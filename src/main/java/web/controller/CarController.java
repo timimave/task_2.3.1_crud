@@ -16,10 +16,12 @@ public class CarController {
         this.carService = carService;
     }
 
+
     @GetMapping
     public String getCars(@RequestParam(name = "count", required = false,
         defaultValue = "5") int count, Model model) {
         model.addAttribute("cars", carService.getCars(count));
-        return "cars";
+        return "CarController/cars";
     }
+
 }
