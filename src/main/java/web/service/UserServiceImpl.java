@@ -1,10 +1,14 @@
 package web.service;
 
 import java.util.List;
+import javax.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import web.dao.UserDao;
 import web.model.User;
-
+@Service
 public class UserServiceImpl implements UserService {
+
     private final UserDao UserDao;
 
     public UserServiceImpl(web.dao.UserDao userDao) {
