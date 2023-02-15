@@ -10,40 +10,35 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 public class User {
-    @Column
-    private String email;
-    @Column
-    private String firstName;
-    @Column
-    private String lastName;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+
+    @Column(name = "name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    private String email;
+
 
     public User() {
     }
 
-    public User(String email, String firstName, String lastName) {
-        this.email = email;
+    public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
+
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getFirstName() {
@@ -62,9 +57,21 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
     @Override
     public String toString() {
-        return String.format("User email = '%1$s', firstName = '%2$s', lastName ='%3$s', id = %4$d",
-            email, firstName, lastName, id);
+        return String.format(
+            "User id = %d, firstName = '%s', lastName = '%s', email = '%s' ",
+            id, firstName, lastName, email);
+
     }
+
 }

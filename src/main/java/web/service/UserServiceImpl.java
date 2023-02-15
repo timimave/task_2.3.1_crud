@@ -1,32 +1,38 @@
 package web.service;
 
 import java.util.List;
+import web.dao.UserDao;
 import web.model.User;
 
 public class UserServiceImpl implements UserService {
+    private final UserDao UserDao;
 
-    @Override
-    public void addUser(User user) {
-
+    public UserServiceImpl(web.dao.UserDao userDao) {
+        UserDao = userDao;
     }
 
     @Override
-    public void deleteUser(int id) {
-
+    public List<User> findAll() {
+        return UserDao.findAll();
     }
 
     @Override
-    public void updateUser(User user) {
-
+    public User findById(Integer id) {
+        return UserDao.findById(id);
     }
 
     @Override
-    public List<User> getUsersList() {
-        return null;
+    public void save(User user) {
+        UserDao.save(user);
     }
 
     @Override
-    public User getById(int id) {
-        return null;
+    public void update(User user) {
+        UserDao.update(user);
+    }
+
+    @Override
+    public void delete(User user) {
+        UserDao.delete(user);
     }
 }
