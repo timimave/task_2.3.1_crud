@@ -17,7 +17,7 @@ public class User {
     private String name;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "Is_a")
+    @Column(name = "is_person_studying_java")
     private boolean PersonWhoStudiesJava;
 
 
