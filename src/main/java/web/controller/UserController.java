@@ -9,7 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import web.service.UserService;
 
 
 @Controller
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
 
- //   private UserService userService;
+     private UserService userService;
 
     @GetMapping(value = "/users")
     public String UserWelcome(ModelMap model) {
