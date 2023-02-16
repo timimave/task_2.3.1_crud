@@ -16,6 +16,24 @@
         div {
             text-align: center;
         }
+
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 2px solid green;
+            color: white;
+            background-color: green;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: white;
+            color: green;
+        }
+
     </style>
 </head>
 <body>
@@ -25,7 +43,8 @@
         <h1 th:text="${msg}"></h1>
 
     </th:block>
-    <a href="http://localhost:8080/spring_mvc_war_exploded/users">Start app</a>
+<!--    <a href="http://localhost:8080/spring_mvc_war_exploded/users">Start app</a>-->
+    <a href="http://localhost:8080/spring_mvc_war_exploded/users" class="button-link">Start app</a>
 
 </div>
 </body>
