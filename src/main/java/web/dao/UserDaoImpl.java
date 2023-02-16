@@ -17,8 +17,8 @@ public class UserDaoImpl implements UserDao {
     }
     @Override
     public List<User> findAll() {
-        return entityManager.createQuery("SELECT u FROM User u", User.class)
-            .getResultList();
+        return entityManager
+            .createQuery("SELECT u FROM User u", User.class).getResultList();
     }
     @Override
     public User findById(Integer id) {
@@ -37,3 +37,17 @@ public class UserDaoImpl implements UserDao {
         entityManager.remove(findById(id));
     }
 }
+
+
+
+/*  "SELECT u FROM User u" - это часть запроса на языке JPQL (Java Persistence Query Language),
+который используется для работы с объектами в базе данных с помощью JPA (Java Persistence API).
+
+Этот запрос означает, что мы выбираем все записи из таблицы User и представляем
+их в виде объектов класса User. "u" - это псевдоним для класса User, который
+используется для ссылки на объекты класса User в запросе. Как правило, этот псевдоним
+используется для получения доступа к полям объекта внутри запроса.
+
+Этот метод выполняет запрос и возвращает результат в виде списка объектов класса User.
+ Метод getResultList() вызывает выполнение запроса и возвращает список объектов User,
+ представляющих записи в таблице User. Если таблица User пуста, метод вернет пустой список.*/
