@@ -29,11 +29,11 @@ public class UserController {
         model.addAttribute("users", userService.findAll());
         return "UserController/users";
     }
-//    @GetMapping(value = "/editUser/{id}")
-//    public String editUser(@PathVariable int id, ModelMap model) {
-//        model.addAttribute("user", userService.findById(id));
-//        return "userController/editUser";
-//    }
+    @GetMapping(value = "/editUser/{id}")
+    public String editUser(@PathVariable int id, ModelMap model) {
+        model.addAttribute("user", userService.findById(id));
+        return "userController/editUser";
+    }
 
     @GetMapping(value = "/addUser")
     public String addUser(ModelMap model) {
@@ -41,28 +41,22 @@ public class UserController {
         return "userController/addUser";
     }
 
-//    @GetMapping(value = "/addUser")
-//    public String addUser(ModelMap model) {
-//        model.addAttribute("user", new User());
-//        return "userController/addUser";
-//    }
-
-//    @GetMapping(value="/deleteUser/{id}")
-//    public String deleteUser(@PathVariable int id) {
-//        userService.delete(id);
-//        return "redirect:/";
-//    }
-//    @PostMapping(value="/editUser/{getId}")
-//    public String saveEditUser(@PathVariable int getId, @ModelAttribute("user") User user){
-//        user.setId(getId);
-//        userService.update(user);
-//        return "redirect:/";
-//    }
-//    @PostMapping(value="/addUser")
-//    public String saveUser(@ModelAttribute("user") User user) {
-//        userService.save(user);
-//        return "redirect:/";
-//    }
+    @GetMapping(value="/deleteUser/{id}")
+    public String deleteUser(@PathVariable int id) {
+        userService.delete(id);
+        return "redirect:/";
+    }
+    @PostMapping(value="/editUser/{getId}")
+    public String saveEditUser(@PathVariable int getId, @ModelAttribute("user") User user){
+        user.setId(getId);
+        userService.update(user);
+        return "redirect:/";
+    }
+    @PostMapping(value="/addUser")
+    public String saveUser(@ModelAttribute("user") User user) {
+        userService.save(user);
+        return "redirect:/";
+    }
 }
 
 

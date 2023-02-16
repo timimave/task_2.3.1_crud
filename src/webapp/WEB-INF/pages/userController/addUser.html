@@ -1,9 +1,96 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="eng">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Add new User</title>-->
+<!--  <style>-->
+<!--    #saveButton {-->
+<!--      background-color: dodgerblue;-->
+<!--      color: azure;-->
+<!--      border: 0;-->
+<!--      font-size: medium;-->
+<!--      width: 200px;-->
+<!--      height: 35px;-->
+<!--    }-->
+
+<!--    a {-->
+<!--      text-decoration: none;-->
+<!--      color: darkred;-->
+<!--      font-size: medium;-->
+<!--    }-->
+
+<!--    a:hover {-->
+<!--      text-decoration: underline;-->
+<!--    }-->
+
+<!--    td {-->
+<!--      font-size: x-large;-->
+<!--      border: 0;-->
+<!--    }-->
+
+<!--    .data {-->
+<!--      width: 200px;-->
+<!--      height: 25px;-->
+<!--      margin-left: 10px;-->
+<!--    }-->
+
+<!--    table {-->
+<!--      border: 0;-->
+<!--    }-->
+
+<!--    form {-->
+<!--      margin-left: 25px;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Add new User</h1><br>-->
+<!--<form th:method="post" th:action="@{/addUser}" th:object="${user}">-->
+<!--  <table>-->
+<!--    <tr>-->
+<!--      <td>name</td>-->
+<!--      <td><label>-->
+<!--        <input th:type="text" th:field="*{name}" required class="data">-->
+<!--      </label></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>last name</td>-->
+<!--      <td><label>-->
+<!--        <input th:type="text" required th:field="*{lastName}" class="data">-->
+<!--      </label>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>studied java?</td>-->
+<!--      <td><label>-->
+<!--        <input th:type="text" required-->
+<!--                   th:field="*{personWhoStudiesJava}" class="data">-->
+<!--      </label></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td colspan="2" height="20px"></td>-->
+<!--    </tr>-->
+<!--    <tr style="text-align: right;">-->
+<!--      <td colspan="2"><input type="submit" value="Save User" id="saveButton"/>&nbsp;&nbsp;&nbsp;<a-->
+<!--          th:href="@{/}">Cancel</a></td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--  <br>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="eng">
 <head>
   <meta charset="UTF-8">
   <title>Add new User</title>
   <style>
+    /* Styles for the form */
+    form {
+      margin: 0 auto; /* Center the form horizontally */
+      width: 400px; /* Set the width of the form */
+    }
+
     #saveButton {
       background-color: dodgerblue;
       color: azure;
@@ -37,15 +124,12 @@
     table {
       border: 0;
     }
-
-    form {
-      margin-left: 25px;
-    }
   </style>
 </head>
 <body>
 <h1>Add new User</h1><br>
-<form th:method="post" th:action="@{/addUser}" th:object="${user}">
+<!-- Use the modified style for the form -->
+<form th:method="post" th:action="@{/addUser}" th:object="${user}" style="margin: 0 auto; width: 400px;">
   <table>
     <tr>
       <td>name</td>
@@ -63,8 +147,7 @@
     <tr>
       <td>studied java?</td>
       <td><label>
-        <input th:type="text" required
-                   th:field="*{personWhoStudiesJava}" class="data">
+        <input th:type="text" required th:field="*{personWhoStudiesJava}" class="data">
       </label></td>
     </tr>
     <tr>

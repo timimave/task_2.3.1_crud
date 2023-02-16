@@ -30,16 +30,16 @@
       height: 50px;
     }
 
-    #addB {
-      background-color: dodgerblue;
-      color: azure;
-      border: 0;
-      font-size: medium;
-      width: 200px;
-      height: 45px;
-      float: right;
-      margin-right: 10%;
-    }
+    /*#addB {*/
+    /*  background-color: dodgerblue;*/
+    /*  color: azure;*/
+    /*  border: 0;*/
+    /*  font-size: medium;*/
+    /*  width: 200px;*/
+    /*  height: 45px;*/
+    /*  float: right;*/
+    /*  margin-right: 10%;*/
+    /*}*/
 
     a {
       text-decoration: none;
@@ -59,6 +59,43 @@
       border: 0;
       color: dodgerblue;
     }
+
+    /*#addB {*/
+    /*  background-color: dodgerblue;*/
+    /*  color: azure;*/
+    /*  border: none;*/
+    /*  font-size: medium;*/
+    /*  width: 200px;*/
+    /*  height: 45px;*/
+    /*  border-radius: 50px;*/
+    /*  float: none;*/
+    /*  display: block;*/
+    /*  margin: 20px auto 0;*/
+    /*}*/
+
+    a {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 2px solid green;
+      color: white;
+      background-color: #6c64db;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    a:hover {
+      background-color: #ffffff;
+      color: #d06d1c;
+    }
+
+    .button-link {
+      display: block;
+      margin: 0;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -79,18 +116,24 @@
       <td th:text="${user.getName()}"></td>
       <td th:text="${user.getLastName()}"></td>
       <td th:text="${user.isPersonWhoStudiesJava()}"></td>
+
       <td><a th:text="Edit"
              th:href="@{editUser/{userId}(userId=${user.getId()})}"></a>&nbsp;|&nbsp;<a
           th:text="Delete"
           th:href="@{deleteUser/{userId}(userId=${user.getId()})}"></a>
       </td>
+
     </tr>
   </th:block>
+
 
 </table>
 <br><br>
 
-<a th:href="addUser"><input type="button" id="addB" value="Add new user"></a>
+
+<a href="http://localhost:8080/spring_mvc_war_exploded/addUser" class="button-link">Add User</a>
 
 </body>
 </html>
+
+
