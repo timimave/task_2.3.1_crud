@@ -18,19 +18,17 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "Is_a")
-    private boolean APersonWhoStudiesJava;
+    private boolean PersonWhoStudiesJava;
 
 
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email) {
-        this.name = firstName;
+    public User(String name, String lastName, boolean personWhoStudiesJava) {
+        this.name = name;
         this.lastName = lastName;
-        this.APersonWhoStudiesJava = APersonWhoStudiesJava;
-
-
+        PersonWhoStudiesJava = personWhoStudiesJava;
     }
 
     public Integer getId() {
@@ -57,12 +55,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public boolean getIsAPersonWhoStudiesJava() {
-        return APersonWhoStudiesJava;
+    public boolean isPersonWhoStudiesJava() {
+        return PersonWhoStudiesJava;
     }
 
-    public void setAPersonWhoStudiesJava(boolean APersonWhoStudiesJava) {
-        this.APersonWhoStudiesJava = APersonWhoStudiesJava;
+    public void setPersonWhoStudiesJava(boolean personWhoStudiesJava) {
+        PersonWhoStudiesJava = personWhoStudiesJava;
     }
 
     @Override
