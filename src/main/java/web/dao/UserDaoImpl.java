@@ -17,24 +17,24 @@ public class UserDaoImpl implements UserDao {
     }
     @Override
     public List<User> findAll() {
-        return entityManager
+        return entityManager // createQuery
             .createQuery("SELECT u FROM User u", User.class).getResultList();
     }
     @Override
     public User findById(Integer id) {
-        return entityManager.find(User.class, id);
+        return entityManager.find(User.class, id); // find
     }
     @Override
     public void save(User user) {
-        entityManager.persist(user);
+        entityManager.persist(user); // persist
     }
     @Override
     public void update(User user) {
-        entityManager.merge(user);
+        entityManager.merge(user); // merge
     }
     @Override
     public void delete(int id) {
-        entityManager.remove(findById(id));
+        entityManager.remove(findById(id)); // remove
     }
 }
 

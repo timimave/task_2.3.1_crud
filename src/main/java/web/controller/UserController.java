@@ -16,7 +16,7 @@ import web.service.UserService;
 
 
 @Controller
-@RequestMapping(name = "usersManagement")
+@RequestMapping(name = "/users")
 public class UserController {
      private final UserService userService;
 
@@ -32,31 +32,33 @@ public class UserController {
     @GetMapping(value = "/editUser/{id}")
     public String editUser(@PathVariable int id, ModelMap model) {
         model.addAttribute("user", userService.findById(id));
-        return "userController/editUser";
+        return "UserController/editUser";
     }
 
     @GetMapping(value = "/addUser")
     public String addUser(ModelMap model) {
         model.addAttribute("user", new User());
-        return "userController/addUser";
+        return "UserController/addUser";
     }
 
     @GetMapping(value="/deleteUser/{id}")
     public String deleteUser(@PathVariable int id) {
         userService.delete(id);
-        return "redirect:/";
+        return "redirect:/users";
     }
     @PostMapping(value="/editUser/{getId}")
     public String saveEditUser(@PathVariable int getId, @ModelAttribute("user") User user){
         user.setId(getId);
         userService.update(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
     @PostMapping(value="/addUser")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.save(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
+
+
 }
 
 
@@ -74,4 +76,42 @@ public class UserController {
         messages.add("Have a nice day!!!!");
         model.addAttribute("messages", messages);
         return "UserController/users";
+    }*/
+
+
+/*@GetMapping()
+    public String getPartOfCarsList(ModelMap model) {
+        model.addAttribute("users", userService.findAll());
+        return "UserController/users";
+    }
+
+    @GetMapping(value = "/editUser/{id}")
+    public String editUser(@PathVariable int id, ModelMap model) {
+        model.addAttribute("user", userService.findById(id));
+        return "UserController/editUser";
+    }
+
+    @GetMapping(value = "/addUser")
+    public String addUser(ModelMap model) {
+        model.addAttribute("user", new User());
+        return "UserController/addUser";
+    }
+
+    @GetMapping(value="/deleteUser/{id}")
+    public String deleteUser(@PathVariable int id) {
+        userService.delete(id);
+        return "redirect:/";
+    }
+
+    @PostMapping(value="/editUser/{getId}")
+    public String saveEditUser(@PathVariable int getId, @ModelAttribute("user") User user){
+        user.setId(getId);
+        userService.update(user);
+        return "redirect:/";
+    }
+
+    @PostMapping(value="/addUser")
+    public String saveUser(@ModelAttribute("user") User user){
+        userService.save(user);
+        return "redirect:/";
     }*/
