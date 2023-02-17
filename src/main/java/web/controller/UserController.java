@@ -3,6 +3,7 @@ package web.controller;
 
 import org.springframework.stereotype.Controller;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import web.service.UserService;
 
 @Controller
 @RequestMapping(name = "/users")
+@Transactional
 public class UserController {
      private final UserService userService;
 
@@ -52,7 +54,7 @@ public class UserController {
         userService.update(user);
         return "redirect:/users";
     }
-    @PostMapping(value="/addUser")
+    @PostMapping(value="users/addUser")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.save(user);
         return "redirect:/users";

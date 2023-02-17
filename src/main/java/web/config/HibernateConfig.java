@@ -4,6 +4,7 @@ package web.config;
 import java.util.Objects;
 import java.util.Properties;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -50,9 +51,14 @@ public class HibernateConfig {
         em.setJpaProperties(additionalProperties());
         return em;
     }
+//    @Bean
+//    public EntityManager entityManager() {
+//        return Objects.requireNonNull(entityManagerFactory().getObject()).createEntityManager();
+//    }
+
     @Bean
-    public EntityManager entityManager() {
-        return Objects.requireNonNull(entityManagerFactory().getObject()).createEntityManager();
+    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
+        return entityManagerFactory.createEntityManager();
     }
     @Bean
     public PlatformTransactionManager transactionManager() {
