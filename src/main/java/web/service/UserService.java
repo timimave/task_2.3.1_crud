@@ -6,11 +6,11 @@ import web.model.User;
 public interface UserService {
     List<User> findAll();
 
-    User findById(Integer id);
+    User findById(long id);
 
     void save(User user);
 
     void update(User user);
 
-    void delete(int id);
+    void delete(long id);
 }

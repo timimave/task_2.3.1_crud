@@ -51,10 +51,6 @@ public class HibernateConfig {
         em.setJpaProperties(additionalProperties());
         return em;
     }
-//    @Bean
-//    public EntityManager entityManager() {
-//        return Objects.requireNonNull(entityManagerFactory().getObject()).createEntityManager();
-//    }
 
     @Bean
     public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {

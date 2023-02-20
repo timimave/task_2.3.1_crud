@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 import web.dao.UserDao;
 import web.model.User;
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
 
     private final UserDao UserDao;
@@ -21,7 +20,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findById(Integer id) {
+    public User findById(long id) {
         return UserDao.findById(id);
     }
 
@@ -32,14 +31,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-
     public void update(User user) {
         UserDao.update(user);
     }
 
     @Override
 
-    public void delete(int id) {
+    public void delete(long id) {
         UserDao.delete(id);
     }
 }
